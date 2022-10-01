@@ -1,0 +1,24 @@
+name: PR workflow
+on:
+  - pull_request
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.3"
+      - working-directory: flutter_native_logs/
+        run: flutter format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
+      - working-directory: flutter_native_logs/
+        run: flutter analyze --fatal-infos --fatal-warnings
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.3"
+      - working-directory: flutter_native_logs/
+        run: flutter test
