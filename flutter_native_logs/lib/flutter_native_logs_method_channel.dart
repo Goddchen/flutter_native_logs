@@ -20,6 +20,6 @@ class MethodChannelFlutterNativeLogs extends FlutterNativeLogsPlatform {
 
   @override
   Stream<String> get logStream => eventChannel
-      .receiveBroadcastStream((event) {})
+      .receiveBroadcastStream()
       .map((event) => event.toString());
 }
