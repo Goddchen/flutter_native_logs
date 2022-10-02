@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   final _flutterNativeLogsPlugin = FlutterNativeLogs();
-  StreamSubscription<String>? _logStreamSubscription;
+  StreamSubscription<NativeLogMessage>? _logStreamSubscription;
 
   @override
   void initState() {
@@ -39,7 +39,8 @@ class _MyAppState extends State<MyApp> {
     }
 
     _logStreamSubscription = _flutterNativeLogsPlugin.logStream.listen(
-      (String event) => _doSomethingWithLogMessage(message: event),
+      (NativeLogMessage message) =>
+          _doSomethingWithLogMessage(message: message.message),
     );
 
     // If the widget was removed from the tree while the asynchronous platform
