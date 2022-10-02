@@ -1,6 +1,6 @@
 name: flutter_native_logs
-description: Deal with native Android and iOS logs.
-version: 1.0.0
+description: Listen to native Android and iOS logs.
+version: 0.1.0
 homepage: https://github.com/Goddchen/flutter_native_logs
 
 environment:
