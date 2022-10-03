@@ -24,6 +24,15 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
+    _periodicPrint();
+  }
+
+  Future<void> _periodicPrint() async {
+    while (true) {
+      // ignore: avoid_print
+      print('Test periodic print');
+      await Future<void>.delayed(const Duration(seconds: 3));
+    }
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
