@@ -2,7 +2,12 @@
 
 Listen to Android and iOS logs.
 
-![CI pipeline](https://github.com/Goddchen/flutter_native_logs/actions/workflows/main.yml/badge.svg)
+![https://pub.dev/packages/flutter_native_logs](https://img.shields.io/pub/v/flutter_native_logs)
+![](https://github.com/Goddchen/flutter_native_logs/actions/workflows/main.yml/badge.svg)
+
+## Motivation
+
+We had the case where we want to send all app logs to a logging backend. You can easily capture Flutter logs with Dart's zones feature. But what about Android's Logcat logs from native plugins and Android itself? Or iOS native logs? This package gives you the ability to listen to those logs messages and handle them as you like (I wouldn't print them, because infinite loops are usually a bad thing 😉).
 
 ## Installation
 
