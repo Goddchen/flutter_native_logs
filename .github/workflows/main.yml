@@ -31,5 +31,5 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.3"
-      - working-directory: flutter_native_log_hanlder/
+      - working-directory: flutter_native_log_handler/
         run: flutter test
