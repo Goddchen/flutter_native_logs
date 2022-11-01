@@ -15,7 +15,7 @@ jobs:
         env:
           PUB_DEV_CREDENTIALS: ${{ secrets.PUB_DEV_CREDENTIALS }}
         run: |
-          mkdir -p ~/.pub-cache
-          echo $PUB_DEV_CREDENTIALS > ~/.pub-cache/credentials.json
+          mkdir -p ~/.config/dart
+          echo $PUB_DEV_CREDENTIALS > ~/.config/dart/pub-credentials.json
       - working-directory: flutter_native_logs/
         run: dart pub publish -f
