@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   final _flutterNativeLogsPlugin = FlutterNativeLogs();
   StreamSubscription<NativeLogMessage>? _logStreamSubscription;
+  String _logs = '';
 
   @override
   void initState() {
@@ -75,12 +76,24 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: Column(
+          children: [
+            Text('Running on: $_platformVersion\n'),
+            Flexible(
+              child: SingleChildScrollView(
+                reverse: true,
+                child: Text(_logs),
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 
-  void _doSomethingWithLogMessage({required String message}) {}
+  void _doSomethingWithLogMessage({required String message}) {
+    setState(() {
+      _logs = '$_logs\n$message';
+    });
+  }
 }
