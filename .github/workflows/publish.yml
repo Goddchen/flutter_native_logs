@@ -12,6 +12,8 @@ jobs:
         with:
           flutter-version: "3.3.3"
       - name: Setup credentials
+        env:
+          PUB_DEV_CREDENTIALS: ${{ secrets.PUB_DEV_CREDENTIALS }}
         run: |
           mkdir -p ~/.pub-cache
           echo $PUB_DEV_CREDENTIALS > ~/.pub-cache/credentials.json
