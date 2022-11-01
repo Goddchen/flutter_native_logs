@@ -1,0 +1,19 @@
+name: main workflow
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.3"
+      - name: Setup credentials
+        run: |
+          mkdir -p ~/.pub-cache
+          echo $PUB_DEV_CREDENTIALS > ~/.pub-cache/credentials.json
+      - working-directory: flutter_native_logs/
+        run: dart pub publish -f
