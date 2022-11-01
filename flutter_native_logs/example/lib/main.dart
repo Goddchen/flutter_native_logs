@@ -19,11 +19,21 @@ class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   final _flutterNativeLogsPlugin = FlutterNativeLogs();
   StreamSubscription<NativeLogMessage>? _logStreamSubscription;
+  String _logs = '';
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
+    _periodicPrint();
+  }
+
+  Future<void> _periodicPrint() async {
+    while (true) {
+      // ignore: avoid_print
+      print('Test periodic print');
+      await Future<void>.delayed(const Duration(seconds: 3));
+    }
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -66,12 +76,24 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: Column(
+          children: [
+            Text('Running on: $_platformVersion\n'),
+            Flexible(
+              child: SingleChildScrollView(
+                reverse: true,
+                child: Text(_logs),
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 
-  void _doSomethingWithLogMessage({required String message}) {}
+  void _doSomethingWithLogMessage({required String message}) {
+    setState(() {
+      _logs = '$_logs\n$message';
+    });
+  }
 }
