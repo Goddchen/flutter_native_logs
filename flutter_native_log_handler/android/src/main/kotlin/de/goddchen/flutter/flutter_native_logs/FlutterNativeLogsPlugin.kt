@@ -23,10 +23,10 @@ class FlutterNativeLogsPlugin : FlutterPlugin, MethodCallHandler, StreamHandler 
     private var logcatProcess: Process? = null
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_native_logs")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_native_log_handler")
         channel.setMethodCallHandler(this)
         eventChannel =
-            EventChannel(flutterPluginBinding.binaryMessenger, "flutter_native_logs/logs")
+            EventChannel(flutterPluginBinding.binaryMessenger, "flutter_native_log_handler/logs")
         eventChannel.setStreamHandler(this)
         // GlobalScope.launch {
         thread(start = true) {
