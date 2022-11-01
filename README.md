@@ -1,8 +1,8 @@
-# flutter_native_logs
+# flutter_native_log_handler
 
 Listen to Android and iOS logs.
 
-![https://pub.dev/packages/flutter_native_logs](https://img.shields.io/pub/v/flutter_native_logs)
+![https://pub.dev/packages/flutter_native_log_handler](https://img.shields.io/pub/v/flutter_native_log_handler)
 ![](https://github.com/Goddchen/flutter_native_logs/actions/workflows/main.yml/badge.svg)
 
 ## Motivation
@@ -11,9 +11,9 @@ We had the case where we want to send all app logs to a logging backend. You can
 
 ## Installation
 
-As simple as `dart pub add flutter_native_logs`.
+As simple as `dart pub add flutter_native_log_handler`.
 
-Or manually add `flutter_native_logs: ^0.1.0` to your `pubspec.yaml`.
+Or manually add `flutter_native_log_handler: ^0.1.0` to your `pubspec.yaml`.
 
 ## Usage
 

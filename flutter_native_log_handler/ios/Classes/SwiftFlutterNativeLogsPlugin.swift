@@ -4,10 +4,10 @@ import UIKit
 public class SwiftFlutterNativeLogsPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
         let myStreamHandler = MyStreamHandler()
-        let channel = FlutterMethodChannel(name: "flutter_native_logs", binaryMessenger: registrar.messenger())
+        let channel = FlutterMethodChannel(name: "flutter_native_log_handler", binaryMessenger: registrar.messenger())
         let instance = SwiftFlutterNativeLogsPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
-        let eventChannel = FlutterEventChannel(name: "flutter_native_logs/logs", binaryMessenger: registrar.messenger())
+        let eventChannel = FlutterEventChannel(name: "flutter_native_log_handler/logs", binaryMessenger: registrar.messenger())
         eventChannel.setStreamHandler(myStreamHandler)
 
         let pipe = Pipe()

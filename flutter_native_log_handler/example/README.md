@@ -1,10 +1,10 @@
-# flutter_native_logs_example
+# flutter_native_log_handler_example
 
 ## Installation
 
-As simple as `dart pub add flutter_native_logs`.
+As simple as `dart pub add flutter_native_log_handler`.
 
-Or manually add `flutter_native_logs: ^0.1.0` to your `pubspec.yaml`.
+Or manually add `flutter_native_log_handler: ^0.1.0` to your `pubspec.yaml`.
 
 ## Usage
 

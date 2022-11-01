@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_native_logs/flutter_native_logs.dart';
+import 'package:flutter_native_log_handler/flutter_native_logs.dart';
 
 void main() {
   runApp(const MyApp());

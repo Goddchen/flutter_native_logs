@@ -5,11 +5,11 @@ import 'flutter_native_logs_platform_interface.dart';
 
 class MethodChannelFlutterNativeLogs extends FlutterNativeLogsPlatform {
   @visibleForTesting
-  final methodChannel = const MethodChannel('flutter_native_logs');
+  final methodChannel = const MethodChannel('flutter_native_log_handler');
 
   @visibleForTesting
   final EventChannel eventChannel =
-      const EventChannel('flutter_native_logs/logs');
+      const EventChannel('flutter_native_log_handler/logs');
 
   @override
   Future<String?> getPlatformVersion() async {

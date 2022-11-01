@@ -17,5 +17,5 @@ jobs:
         run: |
           mkdir -p ~/.config/dart
           echo $PUB_DEV_CREDENTIALS > ~/.config/dart/pub-credentials.json
-      - working-directory: flutter_native_logs/
+      - working-directory: flutter_native_log_handler/
         run: dart pub publish -f

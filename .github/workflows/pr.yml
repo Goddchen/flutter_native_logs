@@ -9,9 +9,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.3"
-      - working-directory: flutter_native_logs/example/
+      - working-directory: flutter_native_log_handler/example/
         run: flutter pub get
-      - working-directory: flutter_native_logs/
+      - working-directory: flutter_native_log_handler/
         run: flutter analyze --fatal-infos --fatal-warnings
   flutter_format:
     runs-on: ubuntu-22.04
@@ -20,7 +20,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.3"
-      - working-directory: flutter_native_logs/
+      - working-directory: flutter_native_log_handler/
         run: flutter format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
   test:
     runs-on: ubuntu-22.04
@@ -29,5 +29,5 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.3"
-      - working-directory: flutter_native_logs/
+      - working-directory: flutter_native_log_handler/
         run: flutter test

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_native_logs/flutter_native_logs.dart';
-import 'package:flutter_native_logs/flutter_native_logs_platform_interface.dart';
-import 'package:flutter_native_logs/flutter_native_logs_method_channel.dart';
+import 'package:flutter_native_log_handler/flutter_native_logs.dart';
+import 'package:flutter_native_log_handler/flutter_native_logs_platform_interface.dart';
+import 'package:flutter_native_log_handler/flutter_native_logs_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockFlutterNativeLogsPlatform
