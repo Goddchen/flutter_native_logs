@@ -1,6 +1,6 @@
 name: flutter_native_log_handler
-description: Listen to native Android and iOS logs.
-version: 0.1.0
+description: Listen to native Android and iOS logs (basically listen to stdout/stderr).
+version: 0.1.1
 homepage: https://github.com/Goddchen/flutter_native_logs
 
 environment:
