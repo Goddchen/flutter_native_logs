@@ -7,11 +7,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'flutter_native_logs.freezed.dart';
 
+/// Public facing API of the plugin.
 class FlutterNativeLogs {
+  /// Gets the native platform's version
   Future<String?> getPlatformVersion() {
     return FlutterNativeLogsPlatform.instance.getPlatformVersion();
   }
 
+  /// The stream of messages that have been captured on the native side.
+  ///
+  /// Incoming messages will already be parsed into `NativeLogMessage`
+  /// instances.
   Stream<NativeLogMessage> get logStream =>
       FlutterNativeLogsPlatform.instance.logStream.map(
         (String event) => Platform.isAndroid
@@ -21,6 +27,7 @@ class FlutterNativeLogs {
                 : NativeLogMessage(message: event),
       );
 
+  /// Parse an incoming Android log message into a `NativeLogMessage` instance.
   @visibleForTesting
   static NativeLogMessage parseAndroidMessage({required String message}) {
     return catching(
@@ -37,11 +44,13 @@ class FlutterNativeLogs {
     ).getOrElse(() => NativeLogMessage(message: message));
   }
 
+  /// Parse an incoming iOS log message into a `NativeLogMessage` instance.
   @visibleForTesting
   static NativeLogMessage parseIosMessage({required String message}) =>
       NativeLogMessage(message: message);
 }
 
+/// Immutable data class holding parsed info of log messages.
 @freezed
 class NativeLogMessage with _$NativeLogMessage {
   const factory NativeLogMessage({
