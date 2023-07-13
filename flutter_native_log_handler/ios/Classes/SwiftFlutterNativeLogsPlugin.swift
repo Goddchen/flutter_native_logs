@@ -52,8 +52,6 @@ class MyStreamHandler: NSObject, FlutterStreamHandler {
 
     public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         eventSink = events
-        events("Test")
-        eventSink?("Test2")
         return nil
     }
 
