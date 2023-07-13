@@ -11,7 +11,6 @@ public class SwiftFlutterNativeLogsPlugin: NSObject, FlutterPlugin {
         eventChannel.setStreamHandler(myStreamHandler)
 
         let pipe = Pipe()
-        // dup2(STDOUT_FILENO, pipe.fileHandleForWriting.fileDescriptor)
         setvbuf(stdout, nil, _IONBF, 0)
         setvbuf(stderr, nil, _IONBF, 0)
         dup2(pipe.fileHandleForWriting.fileDescriptor, FileHandle.standardOutput.fileDescriptor)
@@ -31,15 +30,6 @@ public class SwiftFlutterNativeLogsPlugin: NSObject, FlutterPlugin {
 
             pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         }
-
-        /* pipe.fileHandleForReading.readabilityHandler = { fileHandle in
-            let data = fileHandle.availableData
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                DispatchQueue.main.async {
-                    myStreamHandler.addMessage(message: string)
-                }
-            }
-        } */
     }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
