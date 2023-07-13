@@ -65,9 +65,6 @@ class MyStreamHandler: NSObject, FlutterStreamHandler {
     public func addMessage(message: String) {
         DispatchQueue.main.async {
             self.eventSink?(message)
-            if(self.eventSink != nil) {
-                self.eventSink!(message)
-            }
         }
     }
 }
