@@ -4,7 +4,7 @@
 
 As simple as `dart pub add flutter_native_log_handler`.
 
-Or manually add `flutter_native_log_handler: ^0.1.1` to your `pubspec.yaml`.
+Or manually add `flutter_native_log_handler: ^0.1.2` to your `pubspec.yaml`.
 
 ## Usage
 
