@@ -9,6 +9,7 @@ import io.flutter.plugin.common.EventChannel.StreamHandler
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import java.io.IOException
 import kotlin.concurrent.thread
 
 /** FlutterNativeLogsPlugin */
@@ -33,14 +34,18 @@ class FlutterNativeLogsPlugin : FlutterPlugin, MethodCallHandler, StreamHandler 
             Runtime.getRuntime().exec("logcat -c")
             logcatProcess = Runtime.getRuntime().exec("logcat")
             logcatProcess?.let {
-                it
-                    .inputStream
-                    .bufferedReader()
-                    .useLines { lines ->
-                        lines.forEach { line ->
-                            Handler(Looper.getMainLooper()).post { eventSink?.success(line) }
+                try {
+                    it
+                        .inputStream
+                        .bufferedReader()
+                        .useLines { lines ->
+                            lines.forEach { line ->
+                                Handler(Looper.getMainLooper()).post { eventSink?.success(line) }
+                            }
                         }
-                    }
+                } catch (e: IOException) {
+                    // Don't send logs to the channel
+                }
             }
         }
         // thread(start = true) {
