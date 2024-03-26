@@ -30,14 +30,19 @@ class FlutterNativeLogs {
   /// Parse an incoming Android log message into a `NativeLogMessage` instance.
   @visibleForTesting
   static NativeLogMessage parseAndroidMessage({required String message}) {
+    final regEx = RegExp(
+      r'(?<date>\d{2}-\d{2})\s(?<time>\d{2}:\d{2}:\d{2}\.\d{3})\s(?<pid>\d+)\s(?<tid>\d+)\s(?<level>[A-Z])\s(?<tag>[^\:]+):\s(?<message>.*)',
+    );
     return catching(
-      () => optionOf(RegExp(r'(\w)/(\w+)\((\d+)\): (.+)').firstMatch(message))
+      () => optionOf(regEx.firstMatch(message))
           .map(
             (RegExpMatch match) => NativeLogMessage(
-              level: NativeLogMessageLevel.parse(level: match.group(1)!),
-              message: match.group(4)!,
-              processId: int.parse(match.group(3)!),
-              tag: match.group(2)!,
+              level: NativeLogMessageLevel.parse(
+                level: match.namedGroup('level')!,
+              ),
+              message: match.namedGroup('message')!,
+              processId: int.parse(match.namedGroup('pid')!),
+              tag: match.namedGroup('tag')!,
             ),
           )
           .getOrElse(() => throw 'No match found'),
