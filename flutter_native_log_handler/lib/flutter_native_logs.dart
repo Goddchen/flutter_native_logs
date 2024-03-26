@@ -42,7 +42,7 @@ class FlutterNativeLogs {
               ),
               message: match.namedGroup('message')!,
               processId: int.parse(match.namedGroup('pid')!),
-              tag: match.namedGroup('tag')!,
+              tag: match.namedGroup('tag')!.trim(),
             ),
           )
           .getOrElse(() => throw 'No match found'),

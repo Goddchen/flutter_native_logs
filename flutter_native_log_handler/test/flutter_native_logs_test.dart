@@ -42,7 +42,7 @@ void main() {
     expect(
       FlutterNativeLogs.parseAndroidMessage(
         message:
-            '$testDate $testTime $testProcessId $testThreadId $testLevel $testTag: $testMessage',
+            '$testDate $testTime $testProcessId $testThreadId $testLevel $testTag : $testMessage',
       ),
       equals(
         const NativeLogMessage(
