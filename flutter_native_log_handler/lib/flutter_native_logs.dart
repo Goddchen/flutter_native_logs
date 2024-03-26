@@ -54,37 +54,38 @@ class FlutterNativeLogs {
 @freezed
 class NativeLogMessage with _$NativeLogMessage {
   const factory NativeLogMessage({
-    @Default(NativeLogMessageLevel.unparsable()) NativeLogMessageLevel level,
+    @Default(NativeLogMessageLevel.unparsable) NativeLogMessageLevel level,
     required String message,
     @Default(null) int? processId,
     @Default(null) String? tag,
   }) = _NativeLogMessage;
 }
 
-@freezed
-class NativeLogMessageLevel with _$NativeLogMessageLevel {
-  const factory NativeLogMessageLevel.debug() = NativeLogMessageLevelDebug;
-  const factory NativeLogMessageLevel.error() = NativeLogMessageLevelError;
-  const factory NativeLogMessageLevel.information() =
-      NativeLogMessageLevelInformation;
-  const factory NativeLogMessageLevel.unparsable() =
-      NativeLogMessageLevelUnparsable;
-  const factory NativeLogMessageLevel.verbose() = NativeLogMessageLevelVerbose;
-  const factory NativeLogMessageLevel.warning() = NativeLogMessageLevelWarning;
+enum NativeLogMessageLevel {
+  unparsable(-1),
+  verbose(1000),
+  debug(2000),
+  information(3000),
+  warning(4000),
+  error(5000);
+
+  final int value;
+  const NativeLogMessageLevel(this.value);
 
   factory NativeLogMessageLevel.parse({required String level}) {
-    if (level == 'D') {
-      return const NativeLogMessageLevel.debug();
-    } else if (level == 'E') {
-      return const NativeLogMessageLevel.error();
-    } else if (level == 'I') {
-      return const NativeLogMessageLevel.information();
-    } else if (level == 'V') {
-      return const NativeLogMessageLevel.verbose();
-    } else if (level == 'W') {
-      return const NativeLogMessageLevel.warning();
-    } else {
-      return const NativeLogMessageLevel.unparsable();
+    switch (level) {
+      case 'D':
+        return NativeLogMessageLevel.debug;
+      case 'E':
+        return NativeLogMessageLevel.error;
+      case 'I':
+        return NativeLogMessageLevel.information;
+      case 'V':
+        return NativeLogMessageLevel.verbose;
+      case 'W':
+        return NativeLogMessageLevel.warning;
+      default:
+        return NativeLogMessageLevel.unparsable;
     }
   }
 }

@@ -41,7 +41,7 @@ void main() {
       ),
       equals(
         const NativeLogMessage(
-          level: NativeLogMessageLevel.debug(),
+          level: NativeLogMessageLevel.debug,
           message: testMessage,
           processId: testProcessId,
           tag: testTag,
@@ -56,12 +56,38 @@ void main() {
       FlutterNativeLogs.parseAndroidMessage(message: testMessage),
       equals(
         const NativeLogMessage(
-          level: NativeLogMessageLevel.unparsable(),
+          level: NativeLogMessageLevel.unparsable,
           message: testMessage,
           processId: null,
           tag: null,
         ),
       ),
     );
+  });
+
+  group('parses levels for android correctly', () {
+    const String testTag = 'test';
+    const String testMessage = 'test message';
+    const int testProcessId = 1234;
+
+    final Map<String, NativeLogMessageLevel> testCases = {
+      'D': NativeLogMessageLevel.debug,
+      'E': NativeLogMessageLevel.error,
+      'I': NativeLogMessageLevel.information,
+      'V': NativeLogMessageLevel.verbose,
+      'W': NativeLogMessageLevel.warning,
+      'X': NativeLogMessageLevel.unparsable,
+    };
+
+    testCases.forEach((String level, NativeLogMessageLevel expected) {
+      test('parses $level correctly', () {
+        expect(
+          FlutterNativeLogs.parseAndroidMessage(
+            message: '$level/$testTag($testProcessId): $testMessage',
+          ).level,
+          equals(expected),
+        );
+      });
+    });
   });
 }
