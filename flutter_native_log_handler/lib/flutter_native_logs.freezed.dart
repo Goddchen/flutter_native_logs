@@ -51,6 +51,8 @@ class _$NativeLogMessageCopyWithImpl<$Res, $Val extends NativeLogMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NativeLogMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -103,6 +105,8 @@ class __$$NativeLogMessageImplCopyWithImpl<$Res>
       $Res Function(_$NativeLogMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NativeLogMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,7 +206,7 @@ abstract class _NativeLogMessage implements NativeLogMessage {
   /// Create a copy of NativeLogMessage
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NativeLogMessageImplCopyWith<_$NativeLogMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

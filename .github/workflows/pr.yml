@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.3"
+          flutter-version: "3.24.5"
       - working-directory: flutter_native_log_handler/example/
         run: flutter pub get
       - working-directory: flutter_native_log_handler/
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.3"
+          flutter-version: "3.24.5"
       - working-directory: flutter_native_log_handler/
         run: flutter format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
   test:
@@ -28,6 +28,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.3"
+          flutter-version: "3.24.5"
       - working-directory: flutter_native_log_handler/
         run: flutter test
