@@ -23,7 +23,7 @@ jobs:
         with:
           flutter-version: "3.24.5"
       - working-directory: flutter_native_log_handler/
-        run: flutter format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
+        run: dart format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
   test:
     runs-on: ubuntu-22.04
     steps:
