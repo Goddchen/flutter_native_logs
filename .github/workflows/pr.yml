@@ -21,7 +21,7 @@ jobs:
         with:
           path: flutter_native_log_handler/.fvmrc
       - working-directory: flutter_native_log_handler/
-        run: flutter format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
+        run: dart format --output none --set-exit-if-changed .\example\ .\lib\ .\test\
   test:
     runs-on: ubuntu-22.04
     steps:
