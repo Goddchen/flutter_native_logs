@@ -48,11 +48,6 @@ class _MyAppState extends State<MyApp> {
       platformVersion = 'Failed to get platform version.';
     }
 
-    _logStreamSubscription = _flutterNativeLogsPlugin.logStream.listen(
-      (NativeLogMessage message) =>
-          _doSomethingWithLogMessage(message: message.message),
-    );
-
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
@@ -79,6 +74,23 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Text('Running on: $_platformVersion\n'),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_logStreamSubscription == null) {
+                    _logStreamSubscription =
+                        _flutterNativeLogsPlugin.logStream.listen(
+                      (NativeLogMessage message) =>
+                          _doSomethingWithLogMessage(message: message.message),
+                    );
+                  } else {
+                    _logStreamSubscription?.cancel();
+                    _logStreamSubscription = null;
+                  }
+                });
+              },
+              child: Text(_logStreamSubscription != null ? 'Stop' : 'Start'),
+            ),
             Flexible(
               child: SingleChildScrollView(
                 reverse: true,
