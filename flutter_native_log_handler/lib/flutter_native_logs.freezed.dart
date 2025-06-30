@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,86 +10,50 @@ part of 'flutter_native_logs.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NativeLogMessage {
-  NativeLogMessageLevel get level => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  int? get processId => throw _privateConstructorUsedError;
-  String? get tag => throw _privateConstructorUsedError;
+  NativeLogMessageLevel get level;
+  String get message;
+  int? get processId;
+  String? get tag;
 
   /// Create a copy of NativeLogMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NativeLogMessageCopyWith<NativeLogMessage> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NativeLogMessageCopyWith<$Res> {
-  factory $NativeLogMessageCopyWith(
-          NativeLogMessage value, $Res Function(NativeLogMessage) then) =
-      _$NativeLogMessageCopyWithImpl<$Res, NativeLogMessage>;
-  @useResult
-  $Res call(
-      {NativeLogMessageLevel level,
-      String message,
-      int? processId,
-      String? tag});
-}
-
-/// @nodoc
-class _$NativeLogMessageCopyWithImpl<$Res, $Val extends NativeLogMessage>
-    implements $NativeLogMessageCopyWith<$Res> {
-  _$NativeLogMessageCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of NativeLogMessage
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $NativeLogMessageCopyWith<NativeLogMessage> get copyWith =>
+      _$NativeLogMessageCopyWithImpl<NativeLogMessage>(
+          this as NativeLogMessage, _$identity);
+
   @override
-  $Res call({
-    Object? level = null,
-    Object? message = null,
-    Object? processId = freezed,
-    Object? tag = freezed,
-  }) {
-    return _then(_value.copyWith(
-      level: null == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as NativeLogMessageLevel,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      processId: freezed == processId
-          ? _value.processId
-          : processId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      tag: freezed == tag
-          ? _value.tag
-          : tag // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NativeLogMessage &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.processId, processId) ||
+                other.processId == processId) &&
+            (identical(other.tag, tag) || other.tag == tag));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, level, message, processId, tag);
+
+  @override
+  String toString() {
+    return 'NativeLogMessage(level: $level, message: $message, processId: $processId, tag: $tag)';
   }
 }
 
 /// @nodoc
-abstract class _$$NativeLogMessageImplCopyWith<$Res>
-    implements $NativeLogMessageCopyWith<$Res> {
-  factory _$$NativeLogMessageImplCopyWith(_$NativeLogMessageImpl value,
-          $Res Function(_$NativeLogMessageImpl) then) =
-      __$$NativeLogMessageImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NativeLogMessageCopyWith<$Res> {
+  factory $NativeLogMessageCopyWith(
+          NativeLogMessage value, $Res Function(NativeLogMessage) _then) =
+      _$NativeLogMessageCopyWithImpl;
   @useResult
   $Res call(
       {NativeLogMessageLevel level,
@@ -98,12 +63,12 @@ abstract class _$$NativeLogMessageImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NativeLogMessageImplCopyWithImpl<$Res>
-    extends _$NativeLogMessageCopyWithImpl<$Res, _$NativeLogMessageImpl>
-    implements _$$NativeLogMessageImplCopyWith<$Res> {
-  __$$NativeLogMessageImplCopyWithImpl(_$NativeLogMessageImpl _value,
-      $Res Function(_$NativeLogMessageImpl) _then)
-      : super(_value, _then);
+class _$NativeLogMessageCopyWithImpl<$Res>
+    implements $NativeLogMessageCopyWith<$Res> {
+  _$NativeLogMessageCopyWithImpl(this._self, this._then);
+
+  final NativeLogMessage _self;
+  final $Res Function(NativeLogMessage) _then;
 
   /// Create a copy of NativeLogMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -115,21 +80,21 @@ class __$$NativeLogMessageImplCopyWithImpl<$Res>
     Object? processId = freezed,
     Object? tag = freezed,
   }) {
-    return _then(_$NativeLogMessageImpl(
+    return _then(_self.copyWith(
       level: null == level
-          ? _value.level
+          ? _self.level
           : level // ignore: cast_nullable_to_non_nullable
               as NativeLogMessageLevel,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
       processId: freezed == processId
-          ? _value.processId
+          ? _self.processId
           : processId // ignore: cast_nullable_to_non_nullable
               as int?,
       tag: freezed == tag
-          ? _value.tag
+          ? _self.tag
           : tag // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -138,8 +103,8 @@ class __$$NativeLogMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NativeLogMessageImpl implements _NativeLogMessage {
-  const _$NativeLogMessageImpl(
+class _NativeLogMessage implements NativeLogMessage {
+  const _NativeLogMessage(
       {this.level = NativeLogMessageLevel.unparsable,
       required this.message,
       this.processId = null,
@@ -157,16 +122,19 @@ class _$NativeLogMessageImpl implements _NativeLogMessage {
   @JsonKey()
   final String? tag;
 
+  /// Create a copy of NativeLogMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NativeLogMessage(level: $level, message: $message, processId: $processId, tag: $tag)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NativeLogMessageCopyWith<_NativeLogMessage> get copyWith =>
+      __$NativeLogMessageCopyWithImpl<_NativeLogMessage>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NativeLogMessageImpl &&
+            other is _NativeLogMessage &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.processId, processId) ||
@@ -177,36 +145,64 @@ class _$NativeLogMessageImpl implements _NativeLogMessage {
   @override
   int get hashCode => Object.hash(runtimeType, level, message, processId, tag);
 
+  @override
+  String toString() {
+    return 'NativeLogMessage(level: $level, message: $message, processId: $processId, tag: $tag)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$NativeLogMessageCopyWith<$Res>
+    implements $NativeLogMessageCopyWith<$Res> {
+  factory _$NativeLogMessageCopyWith(
+          _NativeLogMessage value, $Res Function(_NativeLogMessage) _then) =
+      __$NativeLogMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {NativeLogMessageLevel level,
+      String message,
+      int? processId,
+      String? tag});
+}
+
+/// @nodoc
+class __$NativeLogMessageCopyWithImpl<$Res>
+    implements _$NativeLogMessageCopyWith<$Res> {
+  __$NativeLogMessageCopyWithImpl(this._self, this._then);
+
+  final _NativeLogMessage _self;
+  final $Res Function(_NativeLogMessage) _then;
+
   /// Create a copy of NativeLogMessage
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$NativeLogMessageImplCopyWith<_$NativeLogMessageImpl> get copyWith =>
-      __$$NativeLogMessageImplCopyWithImpl<_$NativeLogMessageImpl>(
-          this, _$identity);
+  $Res call({
+    Object? level = null,
+    Object? message = null,
+    Object? processId = freezed,
+    Object? tag = freezed,
+  }) {
+    return _then(_NativeLogMessage(
+      level: null == level
+          ? _self.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as NativeLogMessageLevel,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      processId: freezed == processId
+          ? _self.processId
+          : processId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tag: freezed == tag
+          ? _self.tag
+          : tag // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
-abstract class _NativeLogMessage implements NativeLogMessage {
-  const factory _NativeLogMessage(
-      {final NativeLogMessageLevel level,
-      required final String message,
-      final int? processId,
-      final String? tag}) = _$NativeLogMessageImpl;
-
-  @override
-  NativeLogMessageLevel get level;
-  @override
-  String get message;
-  @override
-  int? get processId;
-  @override
-  String? get tag;
-
-  /// Create a copy of NativeLogMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NativeLogMessageImplCopyWith<_$NativeLogMessageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

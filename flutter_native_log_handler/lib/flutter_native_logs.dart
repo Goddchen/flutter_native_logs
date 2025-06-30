@@ -52,7 +52,7 @@ class FlutterNativeLogs {
 
 /// Immutable data class holding parsed info of log messages.
 @freezed
-class NativeLogMessage with _$NativeLogMessage {
+abstract class NativeLogMessage with _$NativeLogMessage {
   const factory NativeLogMessage({
     @Default(NativeLogMessageLevel.unparsable) NativeLogMessageLevel level,
     required String message,
