@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Bumping versions (mainly freezed 3 upgrade).
+New min versions are Flutter 3.27 and Dart 3.6.0
+
 ## 1.0.0
 
 - feat(breaking): [#30](https://github.com/Goddchen/flutter_native_logs/pull/30) migrate `NativeLogMessageLevel` from freezed union to enum (with an `int` value, making it easier to filter by level). Thanks @bawahakim
