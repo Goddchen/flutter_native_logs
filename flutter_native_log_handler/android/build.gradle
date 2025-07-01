@@ -36,6 +36,8 @@ android {
         jvmTarget = '1.8'
     }
 
+    namespace 'de.goddchen.flutter.flutter_native_logs'
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
