@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Added namespace to Android builde.gradle
+
 ## 1.1.0
 
 - Bumping versions (mainly freezed 3 upgrade).
