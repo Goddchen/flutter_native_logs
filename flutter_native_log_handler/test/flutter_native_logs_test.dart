@@ -32,12 +32,17 @@ void main() {
   });
 
   test('parseAndroidMessage works as expected', () {
-    const String testTag = 'test';
-    const String testMessage = 'test message';
-    const int testProcessId = 1234;
+    const String testDate = '03-26';
+    const String testTime = '10:26:54.970';
+    const int testProcessId = 20521;
+    const int testThreadId = 20684;
+    const String testLevel = 'D';
+    const String testTag = 'flutter';
+    const String testMessage = 'some message';
     expect(
       FlutterNativeLogs.parseAndroidMessage(
-        message: 'D/$testTag($testProcessId): $testMessage',
+        message:
+            '$testDate $testTime $testProcessId $testThreadId $testLevel $testTag : $testMessage',
       ),
       equals(
         const NativeLogMessage(
